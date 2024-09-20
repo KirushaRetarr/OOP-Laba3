@@ -19,8 +19,20 @@ namespace OOP_Laba3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double x = double.Parse(textBox1.Text);
-            double y = double.Parse(textBox2.Text);
+            double x;
+            double y;
+
+            if (!double.TryParse(textBox1.Text, out x))
+            {
+                MessageBox.Show("Ошибка", "Нужно корректное значение x", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!double.TryParse(textBox2.Text, out y))
+            {
+                MessageBox.Show("Ошибка", "Нужно корректное значение y", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             if ((y != 0) && (Math.Abs(x) > Math.Abs(y)))
             {
